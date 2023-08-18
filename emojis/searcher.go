@@ -22,7 +22,7 @@ type searcher struct {
 
 func (s *searcher) Search(ctx context.Context, query string) ([]string, error) {
 	// Perform the search. First, we lowercase the query and split it into words.
-
+	s.Logger(ctx).Debug("Search", "query", query)
 	words := strings.Fields(strings.ToLower(query))
 	var results []string
 	for emoji, labels := range emojis {
